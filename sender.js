@@ -3,42 +3,42 @@ const fragmentTemplate = [
   "✳️ *Terimakasih Telah Membeli Produk ONLINE.LAGI*",
 ];
 
-const sendInformation = async (sock, messageBody) => {
+const sendInformation = async (sock, messageBody, senderId) => {
   const product = messageBody[1];
 
   switch (product) {
     case "youtube":
-      await senderYoutube(sock, messageBody);
+      await senderYoutube(sock, messageBody, senderId);
       break;
     case "netflix":
-      await senderNetflix(sock, messageBody);
+      await senderNetflix(sock, messageBody, senderId);
       break;
     case "viu":
-      await senderViu(sock, messageBody);
+      await senderViu(sock, messageBody, senderId);
       break;
     case "canva":
-      await senderCanva(sock, messageBody);
+      await senderCanva(sock, messageBody, senderId);
       break;
     case "wetv":
-      await senderWetv(sock, messageBody);
+      await senderWetv(sock, messageBody, senderId);
       break;
     case "iqiyi":
-      await senderIqiyi(sock, messageBody);
+      await senderIqiyi(sock, messageBody, senderId);
       break;
     case "vidio":
-      await senderVidio(sock, messageBody);
+      await senderVidio(sock, messageBody, senderId);
       break;
     case "spotify":
-      await senderSpotify(sock, messageBody);
+      await senderSpotify(sock, messageBody, senderId);
       break;
     case "hbo":
-      await senderHbogo(sock, messageBody);
+      await senderHbogo(sock, messageBody, senderId);
       break;
     case "disney":
-      await senderDisney(sock, messageBody);
+      await senderDisney(sock, messageBody, senderId);
       break;
     case "prime":
-      await senderPrime(sock, messageBody);
+      await senderPrime(sock, messageBody, senderId);
       break;
   }
 };
