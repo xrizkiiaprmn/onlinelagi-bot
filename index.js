@@ -107,7 +107,7 @@ async function connectToWhatsApp() {
       } else if (selectedListMessageId === "option2") {
         await sock.sendMessage(remoteJid, {
           image: { url: "./media/lisensi.png" },
-          caption: "✳️ Pricelist Akun Premium ONLINE.LAGI",
+          caption: "✳️ Pricelist Lisensi Lifetime Retail ONLINE.LAGI",
         });
       } else if (selectedListMessageId === "option3") {
         const vcard =
