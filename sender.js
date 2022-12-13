@@ -7,7 +7,7 @@ const sendInformation = async (sock, messageBody) => {
   const product = messageBody[1];
 
   switch (product) {
-    case "yt":
+    case "youtube":
       await senderYoutube(sock, messageBody);
       break;
     case "netflix":
@@ -43,14 +43,64 @@ const sendInformation = async (sock, messageBody) => {
   }
 };
 
-const sendFormat = async (sock, messageBody) => {
+const sendFormat = async (sock, messageBody, remoteJid) => {
   const messageSplit = messageBody.split(" ");
   const product = messageSplit[1];
 
   switch (product) {
-    case "yt":
+    case "youtube":
       await sock.sendMessage(remoteJid, {
-        text: "Format $send productt YouTube Premium\n\n$send target yt durasi email pass ...masaBerlaku\nexample : $send 6285704321147 yt 4 onlinelagi@gmail.com $onlinelagi Masa Berlaku 13 Desember 2022 - 13 April 2023",
+        text: "✳️ Format $send produk YouTube Premium\n\n• $send target youtube durasi email pass ...masaBerlaku\n• ex : $send 6285704321147 youtube 4 onlinelagi@gmail.com $onlinelagi Masa Berlaku 13 Desember 2022 - 13 April 2023",
+      });
+      break;
+    case "netflix":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk Netflix\n\n• $send target netflix durasi satuanDurasi email pass profile pin\n• ex : $send 6285704321147 netflix 1 Bulan onlinelagi@gmail.com $onlinelagi Profile-1 2378",
+      });
+      break;
+    case "viu":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk Viu Premium\n\n• $send target viu durasi email pass\n• ex : $send 6285704321147 viu 1 onlinelagi@gmail.com $onlinelagi",
+      });
+      break;
+    case "canva":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk Canva Pro\n\n• $send target canva durasi linkInvite\n• ex : $send 6285704321147 canva 1 https://canva.com/",
+      });
+      break;
+    case "wetv":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk WeTV VIP\n\n• $send target wetv durasi email pass\n• ex : $send 6285704321147 wetv 1 onlinelagi@gmail.com $onlinelagi",
+      });
+      break;
+    case "iqiyi":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk iQIYI Premium\n\n• $send target iqiyi type durasi email pass\n• ex : $send 6285704321147 iqiyi Sharing 1 onlinelagi@gmail.com $onlinelagi",
+      });
+      break;
+    case "vidio":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk Vidio Platinum\n\n• $send target vidio type durasi email pass\n• ex : $send 6285704321147 vidio Sharing 1 onlinelagi@gmail.com $onlinelagi",
+      });
+      break;
+    case "spotify":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk Spotify Premium (Invite)\n\n• $send target spotify type durasi linkInvite\n• ex : $send 6285704321147 spotify Invite 1 https://spotify.com/\n\n✳️ Format $send produk Spotify Premium (Individu)\n\n• $send target spotify type durasi email pass\n• ex : $send 6285704321147 spotify Individu 1 onlinelagi@gmail.com $onlinelagi",
+      });
+      break;
+    case "hbogo":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk HBO GO Premium\n\n• $send target hbogo type durasi email pass\n• ex : $send 6285704321147 hbogo Sharing 1 onlinelagi@gmail.com $onlinelagi",
+      });
+      break;
+    case "disney":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk Disney+ Hotstar\n\n• $send target disney type durasi email pass\n• ex : $send 6285704321147 disney Sharing 1 onlinelagi@gmail.com $onlinelagi",
+      });
+      break;
+    case "prime":
+      await sock.sendMessage(remoteJid, {
+        text: "✳️ Format $send produk Prime Video\n\n• $send target prime type durasi email pass\n• ex : $send 6285704321147 prime Sharing 1 onlinelagi@gmail.com $onlinelagi",
       });
       break;
   }

@@ -28,22 +28,26 @@ async function connectToWhatsApp() {
     if (admin.find((data) => data === remoteJid) !== undefined) {
       if (messageBody === "$menu") {
         await sock.sendMessage(remoteJid, {
-          text: "✳️ Menu Utama Bot ONLINE.LAGI\n\n• $hai - untuk menyapa bot\n• $menu - untuk menampilkan menu utama bot\n• $send [parameter] - untuk mengirim informasi produk ke pembeli\n• $format - untuk menampilkan menu format $send product\n$format product - untuk melihat format $send product",
+          text: "✳️ Menu Utama Bot ONLINE.LAGI\n\n• $hai - untuk menyapa bot\n• $menu - untuk menampilkan menu utama bot\n• $send [parameter] - untuk mengirim informasi produk ke pembeli\n• $format - untuk menampilkan menu format $send product\n• $format [product] - untuk melihat format $send product",
         });
       } else if (messageBody === "$hai") {
         await sock.sendMessage(remoteJid, {
           text: `Hallo Admin!`,
         });
+      } else if (messageBody === "$send") {
+        await sock.sendMessage(remoteJid, {
+          text: "✳️ Peringatan\n\nIsi parameter dulu ya, dan sesuaikan dengan format yang ada",
+        });
       } else if (messageBody.startsWith("$send")) {
         const messageSplit = messageBody.split(" ");
         messageSplit.shift();
-        await controller.sendInformation(sock, messageSplit);
+        await controller.sendInformation(sock, messageSplit, remoteJid);
       } else if (messageBody === "$format") {
         await sock.sendMessage(remoteJid, {
-          text: "Menu Format Bot ONLINE.LAGI\n\n$format yt - untuk menampilkan format $send YouTube Premium\n$format netflix - untuk menampilkan format $send Netflix\n$format viu - untuk menampilkan format $send Viu Premium\n$format canva - untuk menampilkan format $send Canva Pro\n$format wetv - untuk menampilkan format $send WeTV VIP\n$format iqiyi - untuk menampilkan format $send iQIYI Premium\n$format vidio - untuk menampilkan format $send Vidio Platinum\n$format spotify - untuk menampilkan format $send Spotify Premium\n$format hbogo - untuk menampilkan format $send HBO GO Premium\n$format disney - untuk menampilkan format $send Disney+ Hotstar\n$format prime - untuk menampilkan format $send Prime Video\n",
+          text: "✳️ Menu Format Bot ONLINE.LAGI\n\n• $format youtube - untuk menampilkan format $send YouTube Premium\n• $format netflix - untuk menampilkan format $send Netflix\n• $format viu - untuk menampilkan format $send Viu Premium\n• $format canva - untuk menampilkan format $send Canva Pro\n• $format wetv - untuk menampilkan format $send WeTV VIP\n• $format iqiyi - untuk menampilkan format $send iQIYI Premium\n• $format vidio - untuk menampilkan format $send Vidio Platinum\n• $format spotify - untuk menampilkan format $send Spotify Premium\n• $format hbogo - untuk menampilkan format $send HBO GO Premium\n• $format disney - untuk menampilkan format $send Disney+ Hotstar\n• $format prime - untuk menampilkan format $send Prime Video",
         });
       } else if (messageBody.startsWith("$format")) {
-        await controller.sendFormat(sock, messageBody);
+        await controller.sendFormat(sock, messageBody, `${remoteJid}`);
       } else if (messageBody) {
         await sock.sendMessage(remoteJid, { text: "Ngomong opo?" });
       }
