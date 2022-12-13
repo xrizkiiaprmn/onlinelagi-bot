@@ -119,6 +119,10 @@ const senderYoutube = async (sock, messageBody, senderId) => {
     }`,
   });
 
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
+  });
+
   console.info(
     `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
   );
@@ -130,6 +134,10 @@ const senderNetflix = async (sock, messageBody, senderId) => {
 
   await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
     text: `${fragmentTemplate[0]}\n\nNetflix ULTRA HD Sharing ${descDurasi} ${durasiDesc}\n\n• Email : ${email}\n• Password : ${pass}\n\n• Profile : ${profile}\n• PIN : ${pin}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Masa Berlaku 28-30 Hari\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email, Password, serta Profile dan PIN\n- Disarankan untuk tidak login logout terlalu sering\n- Dilarang mengotak ngatik billing\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+  });
+
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
   });
 
   console.info(
@@ -144,6 +152,10 @@ const senderViu = async (sock, messageBody, senderId) => {
     text: `${fragmentTemplate[0]}\n\nViu Premium Private ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Garansi jika backfree, kalau ke Banned no Garansi\n- Diperbolehkan mengganti Password\n- Disarankan login di 1 Device\n- Jika ada notif limit screen bisa ditunggu / clear data dan dicoba berkala\n- Solusi lain, customer bisa download dan nonton secara offline\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
   });
 
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
+  });
+
   console.info(
     `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
   );
@@ -154,6 +166,10 @@ const senderCanva = async (sock, messageBody, senderId) => {
 
   await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
     text: `${fragmentTemplate[0]}\n\nCanva Pro Invite ${descDurasi} Bulan\n\n• Link Invite : ${linkInvite}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- 1 Tahun GARANSI 2 Bulan\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+  });
+
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
   });
 
   console.info(
@@ -168,6 +184,10 @@ const senderWetv = async (sock, messageBody, senderId) => {
     text: `${fragmentTemplate[0]}\n\nWeTV VIP Sharing ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email dan Password\n- Tidak termasuk Fasttrack\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
   });
 
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
+  });
+
   console.info(
     `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
   );
@@ -180,6 +200,10 @@ const senderIqiyi = async (sock, messageBody, senderId) => {
     text: `${fragmentTemplate[0]}\n\niQIYI Premium ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Dilarang mengganti Email dan Password\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
   });
 
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
+  });
+
   console.info(
     `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
   );
@@ -190,6 +214,10 @@ const senderVidio = async (sock, messageBody, senderId) => {
 
   await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
     text: `${fragmentTemplate[0]}\n\nVidio Platinum ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email dan Password\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+  });
+
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
   });
 
   console.info(
@@ -210,6 +238,10 @@ const senderSpotify = async (sock, messageBody, senderId) => {
     });
   }
 
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
+  });
+
   console.info(
     `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
   );
@@ -220,6 +252,10 @@ const senderHbogo = async (sock, messageBody, senderId) => {
 
   await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
     text: `${fragmentTemplate[0]}\n\nHBO GO Premium ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email dan Password\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+  });
+
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
   });
 
   console.info(
@@ -234,6 +270,10 @@ const senderDisney = async (sock, messageBody, senderId) => {
     text: `${fragmentTemplate[0]}\n\nDisney+ Hotstar Premium ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Sharing Dilarang Logout\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
   });
 
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
+  });
+
   console.info(
     `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
   );
@@ -244,6 +284,10 @@ const senderPrime = async (sock, messageBody, senderId) => {
 
   await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
     text: `${fragmentTemplate[0]}\n\nPrime Video ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Sharing anya digunakan di 1 Device\n- Dilarang mengganti Email & Password \n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+  });
+
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
   });
 
   console.info(
