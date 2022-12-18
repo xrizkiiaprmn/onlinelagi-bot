@@ -18,7 +18,7 @@ async function connectToWhatsApp() {
   let customers = new Set();
 
   const updateUsers = async (data) => {
-    if (data === null) return 0;
+    if (!data) return;
 
     dataUsersJson = fs.readFileSync("./users.json", { encoding: "utf-8" });
     dataUsersJson = JSON.parse(dataUsersJson);
@@ -27,7 +27,7 @@ async function connectToWhatsApp() {
       dataUsersJson.customer.find((customer) => customer === data) ||
       dataUsersJson.admin.find((admin) => admin === data)
     )
-      return 0;
+      return;
 
     dataUsersJson.customer.push(data);
     const dataEdited = JSON.stringify(dataUsersJson, null, 2);
@@ -42,7 +42,7 @@ async function connectToWhatsApp() {
     }
   };
 
-  updateUsers(null);
+  updateUsers();
 
   sock.ev.on("connection.update", ({ connection }) => {
     if (connection === "close") {
@@ -99,20 +99,24 @@ async function connectToWhatsApp() {
                 rowId: "option7",
               },
               {
-                title: "Spotify Premium",
+                title: "Vidio Diamond",
                 rowId: "option8",
               },
               {
-                title: "HBO GO Premium",
+                title: "Spotify Premium",
                 rowId: "option9",
               },
               {
-                title: "Disney+ Hotstar",
+                title: "HBO GO Premium",
                 rowId: "option10",
               },
               {
-                title: "Prime Video",
+                title: "Disney+ Hotstar",
                 rowId: "option11",
+              },
+              {
+                title: "Prime Video",
+                rowId: "option12",
               },
             ],
           },
@@ -162,10 +166,15 @@ async function connectToWhatsApp() {
           break;
         case "option7":
           await sock.sendMessage(remoteJid, {
-            text: "$send target vidio type durasi email pass",
+            text: "$send target vidioT type durasi email pass",
           });
           break;
         case "option8":
+          await sock.sendMessage(remoteJid, {
+            text: "$send target vidioD type durasi email pass",
+          });
+          break;
+        case "option9":
           await sock.sendMessage(remoteJid, {
             text: "$send target spotify type durasi linkInvite alamat",
           });
@@ -174,17 +183,17 @@ async function connectToWhatsApp() {
             text: "$send target spotify type durasi email pass",
           });
           break;
-        case "option9":
+        case "option10":
           await sock.sendMessage(remoteJid, {
             text: "$send target hbogo type durasi email pass",
           });
           break;
-        case "option10":
+        case "option11":
           await sock.sendMessage(remoteJid, {
             text: "$send target disney type durasi email pass",
           });
           break;
-        case "option11":
+        case "option12":
           await sock.sendMessage(remoteJid, {
             text: "$send target prime type durasi email pass",
           });

@@ -25,8 +25,11 @@ const sendInformation = async (sock, messageBody, senderId) => {
     case "iqiyi":
       await senderIqiyi(sock, messageBody, senderId);
       break;
-    case "vidio":
-      await senderVidio(sock, messageBody, senderId);
+    case "vidioP":
+      await senderVidioPlatinum(sock, messageBody, senderId);
+      break;
+    case "vidioD":
+      await senderVidioDiamond(sock, messageBody, senderId);
       break;
     case "spotify":
       await senderSpotify(sock, messageBody, senderId);
@@ -118,7 +121,7 @@ const senderWetv = async (sock, messageBody, senderId) => {
   const [targetId, , descDurasi, email, pass] = messageBody;
 
   await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
-    text: `${fragmentTemplate[0]}\n\nWeTV VIP Sharing ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email dan Password\n- Tidak termasuk Fasttrack\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+    text: `${fragmentTemplate[0]}\n\nWeTV VIP Sharing ${descDurasi} Bulan\n\n• Email/No. HP : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email dan Password\n- Tidak termasuk Fasttrack\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
   });
 
   await sock.sendMessage(senderId, {
@@ -146,11 +149,27 @@ const senderIqiyi = async (sock, messageBody, senderId) => {
   );
 };
 
-const senderVidio = async (sock, messageBody, senderId) => {
+const senderVidioPlatinum = async (sock, messageBody, senderId) => {
   const [targetId, , type, descDurasi, email, pass] = messageBody;
 
   await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
     text: `${fragmentTemplate[0]}\n\nVidio Platinum ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email dan Password\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+  });
+
+  await sock.sendMessage(senderId, {
+    text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
+  });
+
+  console.info(
+    `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
+  );
+};
+
+const senderVidioDiamond = async (sock, messageBody, senderId) => {
+  const [targetId, , type, descDurasi, email, pass] = messageBody;
+
+  await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
+    text: `${fragmentTemplate[0]}\n\nVidio Diamond ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n\n- Dilarang mengganti Email\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
   });
 
   await sock.sendMessage(senderId, {
