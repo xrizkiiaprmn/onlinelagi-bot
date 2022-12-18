@@ -18,27 +18,35 @@ async function connectToWhatsApp() {
   let customers = new Set();
 
   const updateUsers = async (data) => {
-    if (!data) return;
-
-    dataUsersJson = fs.readFileSync("./users.json", { encoding: "utf-8" });
-    dataUsersJson = JSON.parse(dataUsersJson);
-
-    if (
-      dataUsersJson.customer.find((customer) => customer === data) ||
-      dataUsersJson.admin.find((admin) => admin === data)
-    )
+    if (!data) {
       return;
+    } else {
+      dataUsersJson = fs.readFileSync("./users.json", { encoding: "utf-8" });
+      dataUsersJson = JSON.parse(dataUsersJson);
 
-    dataUsersJson.customer.push(data);
-    const dataEdited = JSON.stringify(dataUsersJson, null, 2);
-    fs.writeFileSync("./users.json", dataEdited);
+      if (dataUsersJson.customer.find((customer) => customer === data)) return;
 
-    for (let admin of dataUsersJson.admin) {
-      admins.add(admin);
-    }
+      if ("awal") {
+        for (let admin of dataUsersJson.admin) {
+          admins.add(admin);
+        }
 
-    for (let customer of dataUsersJson.customer) {
-      customers.add(customer);
+        for (let customer of dataUsersJson.customer) {
+          customers.add(customer);
+        }
+      } else {
+        dataUsersJson.customer.push(data);
+        const dataEdited = JSON.stringify(dataUsersJson, null, 2);
+        fs.writeFileSync("./users.json", dataEdited);
+
+        for (let admin of dataUsersJson.admin) {
+          admins.add(admin);
+        }
+
+        for (let customer of dataUsersJson.customer) {
+          customers.add(customer);
+        }
+      }
     }
   };
 
