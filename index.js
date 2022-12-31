@@ -234,7 +234,7 @@ async function connectToWhatsApp() {
           break;
       }
     } else if (customers.has(remoteJid)) {
-      if (messageBody.toLowerCase() === "hi") {
+      if (messageBody === "hi" || "Hi") {
         const sections = [
           {
             title: "Katalog",
