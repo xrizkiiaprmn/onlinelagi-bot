@@ -73,7 +73,7 @@ const senderNetflix = async (sock, messageBody, senderId) => {
     messageBody;
 
   await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
-    text: `${fragmentTemplate[0]}\n\nNetflix ULTRA HD Sharing ${descDurasi} ${durasiDesc}\n\n• Email : ${email}\n• Password : ${pass}\n\n• Profile : ${profile}\n• PIN : ${pin}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Masa Berlaku 28-30 Hari\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email, Password, serta Profile dan PIN\n- Disarankan untuk tidak login logout terlalu sering\n- Dilarang mengotak ngatik billing\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+    text: `${fragmentTemplate[0]}\n\nNetflix Platinum HD Sharing ${descDurasi} ${durasiDesc}\n\n• Email : ${email}\n• Password : ${pass}\n\n• Profile : ${profile}\n• PIN : ${pin}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Masa Berlaku 28-30 Hari\n- Full Garansi\n- Sharing hanya digunakan di 1 Device\n- Dilarang mengganti Email, Password, serta Profile dan PIN\n- Disarankan untuk tidak login logout terlalu sering\n- Dilarang mengotak ngatik billing\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
   });
 
   await sock.sendMessage(senderId, {
@@ -191,20 +191,24 @@ const senderSpotify = async (sock, messageBody, senderId) => {
     await sock.sendMessage(senderId, {
       text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
     });
+
+    console.info(
+      `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
+    );
   } else if (messageBody[2].toLowerCase() === "individu") {
     const [targetId, , type, descDurasi, email, pass] = messageBody;
     await sock.sendMessage(`${targetId}@s.whatsapp.net`, {
-      text: `${fragmentTemplate[0]}\n\nSpotify Premium ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Dilarang mengganti Email dan Password\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
+      text: `${fragmentTemplate[0]}\n\nSpotify Premium ${type} ${descDurasi} Bulan\n\n• Email : ${email}\n• Password : ${pass}\n\n🔴 *Syarat dan Ketentuan Garansi :*\n- Full Garansi\n- Dilarang mengganti Email\n- Garansi Hangus Jika Melanggar Syarat dan Ketentuan\n- Membeli = Setuju\n\n${fragmentTemplate[1]}`,
     });
 
     await sock.sendMessage(senderId, {
       text: `🟢 Berhasil mengirim informasi pesanan ke ${targetId}!`,
     });
-  }
 
-  console.info(
-    `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
-  );
+    console.info(
+      `Success -> Berhasil Mengirimkan Informasi Produk Ke ${targetId}!`
+    );
+  }
 };
 
 const senderHbogo = async (sock, messageBody, senderId) => {

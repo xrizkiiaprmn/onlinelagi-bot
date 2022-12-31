@@ -76,6 +76,14 @@ async function connectToWhatsApp() {
       } else if (messageBody === "Halo") {
         const sections = [
           {
+            title: "Informasi Toko",
+            rows: [
+              { title: "Akun Premium", rowId: "premium" },
+              { title: "Lisensi Lifetime Retail", rowId: "lisensi" },
+              { title: "Pembayaran", rowId: "payment" },
+            ],
+          },
+          {
             title: "Format Kirim Informasi Pesanan",
             rows: [
               {
@@ -142,6 +150,24 @@ async function connectToWhatsApp() {
       }
 
       switch (selectedListMessageId) {
+        case "premium":
+          await sock.sendMessage(remoteJid, {
+            image: { url: "./media/premium.png" },
+            caption: "✳️ Pricelist Akun Premium ONLINE.LAGI",
+          });
+          break;
+        case "lisensi":
+          await sock.sendMessage(remoteJid, {
+            image: { url: "./media/lisensi.png" },
+            caption: "✳️ Pricelist Lisensi Lifetime Retail ONLINE.LAGI",
+          });
+          break;
+        case "payment":
+          await sock.sendMessage(remoteJid, {
+            image: { url: "./media/qris.png" },
+            caption: `✳️ Metode Pembayaran di ONLINE.LAGI\n\n• QRIS\n\tScan QRIS diatas.\n\n• DANA / OVO / GOPAY / LINKAJA / SHOPEEPAY\n\t085704321147 A. N. RIZKI AGUNG PERMANA\n\n• BANK CENTRAL ASIA (BCA)\n\t3301073681 A. N. RIZKI AGUNG PERMANA\n\n• BANK RAKYAT INDONESIA (BRI)\n\t004101024978538 A. N. RIZKI AGUNG PERMANA\n\n• BANK JAGO\n\trizkiiaprmn A.N. RIZKI AGUNG PERMANA`,
+          });
+          break;
         case "option1":
           await sock.sendMessage(remoteJid, {
             text: "$send target youtube durasi email pass ...masaBerlaku",
@@ -174,7 +200,7 @@ async function connectToWhatsApp() {
           break;
         case "option7":
           await sock.sendMessage(remoteJid, {
-            text: "$send target vidioT type durasi email pass",
+            text: "$send target vidioP type durasi email pass",
           });
           break;
         case "option8":
@@ -208,7 +234,7 @@ async function connectToWhatsApp() {
           break;
       }
     } else if (customers.has(remoteJid)) {
-      if (messageBody === "Hi") {
+      if (messageBody.toLowerCase() === "hi") {
         const sections = [
           {
             title: "Katalog",
