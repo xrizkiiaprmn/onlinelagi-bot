@@ -21,7 +21,7 @@ async function connectToWhatsApp() {
     if (!data) {
       return;
     } else {
-      dataUsersJson = fs.readFileSync("./users.json", { encoding: "utf-8" });
+      dataUsersJson = fs.readFileSync("./users.json", { encoding: "utf8" });
       dataUsersJson = JSON.parse(dataUsersJson);
 
       if (dataUsersJson.customer.find((customer) => customer === data)) return;
@@ -37,7 +37,7 @@ async function connectToWhatsApp() {
       } else {
         dataUsersJson.customer.push(data);
         const dataEdited = JSON.stringify(dataUsersJson, null, 2);
-        fs.writeFileSync("./users.json", dataEdited);
+        fs.writeFileSync("./users.json", dataEdited, { encoding: "utf8" });
 
         for (let admin of dataUsersJson.admin) {
           admins.add(admin);
@@ -234,7 +234,7 @@ async function connectToWhatsApp() {
           break;
       }
     } else if (customers.has(remoteJid)) {
-      if (messageBody === "hi" || "Hi") {
+      if (messageBody === "Hi") {
         const sections = [
           {
             title: "Katalog",
