@@ -152,7 +152,7 @@ async function connectToWhatsApp() {
       switch (selectedListMessageId) {
         case "premium":
           await sock.sendMessage(remoteJid, {
-            image: { url: "./media/premium.png" },
+            image: { url: "./media/premium-full.png" },
             caption: "✳️ Pricelist Akun Premium ONLINE.LAGI",
           });
           break;
@@ -280,7 +280,7 @@ async function connectToWhatsApp() {
         await sock.sendMessage(remoteJid, listMessage);
       } else if (selectedListMessageId === "option1") {
         await sock.sendMessage(remoteJid, {
-          image: { url: "./media/premium.png" },
+          image: { url: "./media/premium-full.png" },
           caption: "✳️ Pricelist Akun Premium ONLINE.LAGI",
         });
       } else if (selectedListMessageId === "option2") {
