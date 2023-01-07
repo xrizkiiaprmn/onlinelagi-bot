@@ -31,7 +31,11 @@ async function connectToWhatsApp() {
     if (!data) {
       return;
     } else {
-      if (dataUsersJson.customer.find((customer) => customer === data)) return;
+      if (
+        dataUsersJson.customer.find((customer) => customer === data) &&
+        dataUsersJson.admin.find((admin) => admin === data)
+      )
+        return;
 
       dataUsersJson.customer.push(data);
       const dataEdited = JSON.stringify(dataUsersJson, null, 2);
